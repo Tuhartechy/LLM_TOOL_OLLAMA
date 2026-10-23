@@ -1,0 +1,20 @@
+:80 {
+    # Replace :80 with your domain (e.g. demo.duckdns.org or your-ip.nip.io) for automatic HTTPS
+    encode zstd gzip
+
+    # Route backend API and SSE streams
+    handle /api/* {
+        reverse_proxy backend:8000 {
+            flush_interval -1
+            transport http {
+                response_header_timeout 180s
+                read_timeout 180s
+            }
+        }
+    }
+
+    # Route frontend static files
+    handle {
+        reverse_proxy frontend:80
+    }
+}
