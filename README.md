@@ -6,7 +6,7 @@ A full-stack, production-grade web application where evaluators chat with open-s
 
 ## Live Demo & Deployment
 - **GitHub Pages Frontend**: Built automatically on push to `main` via GitHub Actions (`.github/workflows/deploy-pages.yml`).
-- **Live Evaluator Link**: `https://tuhartechy.github.io/ollama-llm-tool/` *(or your custom public VPS/tunnel URL)*.
+- **Live Evaluator Link**: `https://tuhartechy.github.io/LLM_TOOL_OLLAMA/` *(or your custom public VPS/tunnel URL)*.
 
 ---
 
@@ -78,7 +78,7 @@ Run through this test sequence to verify all capabilities:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/Tuhartechy/ollama-llm-tool.git && cd ollama-llm-tool
+git clone https://github.com/Tuhartechy/LLM_TOOL_OLLAMA.git && cd LLM_TOOL_OLLAMA
 
 # 2. Copy environment profile
 cp .env.example .env

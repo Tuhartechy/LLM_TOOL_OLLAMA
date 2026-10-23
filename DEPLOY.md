@@ -37,7 +37,7 @@ sudo ufw enable
 
 ### 3. Clone & Configure
 ```bash
-git clone https://github.com/Tuhartechy/ollama-llm-tool.git /opt/ollama-llm-tool
+git clone https://github.com/Tuhartechy/LLM_TOOL_OLLAMA.git /opt/ollama-llm-tool
 cd /opt/ollama-llm-tool
 cp .env.example .env
 ```
