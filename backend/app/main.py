@@ -310,3 +310,12 @@ async def chat_endpoint(payload: ChatRequest, request: Request):
             CHAT_SEMAPHORE.release()
 
     return StreamingResponse(event_generator(), media_type="text/event-stream")
+
+# Mount static frontend build if present (for single-command running without Docker)
+import os
+from fastapi.staticfiles import StaticFiles
+
+frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
+if os.path.exists(frontend_dist):
+    app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="static")
+

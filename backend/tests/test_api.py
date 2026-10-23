@@ -1,9 +1,11 @@
 import pytest
 from httpx import AsyncClient, ASGITransport
 from app.main import app
+from app.database import init_db
 
 @pytest.mark.asyncio
 async def test_health_check_endpoint():
+    await init_db()
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         resp = await client.get("/api/health")
         assert resp.status_code == 200
@@ -13,6 +15,7 @@ async def test_health_check_endpoint():
 
 @pytest.mark.asyncio
 async def test_conversation_lifecycle():
+    await init_db()
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         # Create
         create_res = await client.post("/api/conversations", json={"title": "Test Run"})
